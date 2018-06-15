@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>org.test4j</groupId>
 		<artifactId>test4j.parent</artifactId>
-		<version>2.0.7</version>
+		<version>3.0.0</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>test4j.junit</artifactId>
@@ -24,7 +24,7 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>
-
+		
 		<!-- test jar -->
 		<dependency>
 			<groupId>org.test4j</groupId>

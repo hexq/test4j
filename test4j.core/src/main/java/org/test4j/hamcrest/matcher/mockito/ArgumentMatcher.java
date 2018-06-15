@@ -4,8 +4,10 @@
  */
 package org.test4j.hamcrest.matcher.mockito;
 
-import ext.test4j.hamcrest.BaseMatcher;
-import ext.test4j.hamcrest.Description;
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.hamcrest.Matchers;
 
 
 /**

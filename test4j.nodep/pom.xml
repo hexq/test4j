@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>org.test4j</groupId>
 		<artifactId>test4j.parent</artifactId>
-		<version>2.0.7</version>
+		<version>3.0.0</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>test4j.nodep</artifactId>
@@ -14,21 +14,51 @@
 	</properties>
 	<dependencies>
 		<dependency>
+		    <groupId>org.jmockit</groupId>
+		    <artifactId>jmockit</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.hamcrest</groupId>
+		    <artifactId>hamcrest-core</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.hamcrest</groupId>
+		    <artifactId>hamcrest-library</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>asm</groupId>
+		    <artifactId>asm</artifactId>
+		</dependency>
+		
+		<!-- dep asm -->
+		<dependency>
+		    <groupId>cglib</groupId>
+		    <artifactId>cglib</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.objenesis</groupId>
+		    <artifactId>objenesis</artifactId>
+		</dependency>
+		
+			
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<optional>true</optional>
-		</dependency>
+		</dependency>	
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 			<version>1.1</version>
 			<optional>true</optional>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -42,23 +72,35 @@
 			<optional>true</optional>
 		</dependency>
 	</dependencies>
+	
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.4</version>
-				<configuration>
-					<excludes>
+				<version>3.1.0</version>
+	            <configuration>
+	               <!-- <archive>
+	                  <addMavenDescriptor>false</addMavenDescriptor>
+	                  <manifestEntries>
+	                     <Main-Class>mockit.coverage.CodeCoverage</Main-Class>
+	                     <Premain-Class>mockit.internal.startup.Startup</Premain-Class>
+	                     <Agent-Class>mockit.internal.startup.Startup</Agent-Class>
+	                     <Can-Redefine-Classes>true</Can-Redefine-Classes>
+	                     <Can-Retransform-Classes>true</Can-Retransform-Classes>
+	                     <Implementation-Version>${project.version}</Implementation-Version>
+	                     <Built-By/>
+	                  </manifestEntries>
+	               </archive> -->
+	               <excludes>
 						<exclude>org/test4j/**/*</exclude>
 					</excludes>
-					<useDefaultManifestFile>true</useDefaultManifestFile>
-				</configuration>
+	            </configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>2.2</version>
+				<version>3.0.1</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -74,10 +116,10 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.7</version>
+				<version>3.0.0</version>
 				<executions>
 					<execution>
 						<id>add-source</id>
@@ -92,7 +134,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin>  -->
 		</plugins>
 	</build>
 </project>

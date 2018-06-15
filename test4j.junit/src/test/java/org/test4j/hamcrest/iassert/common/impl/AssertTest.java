@@ -13,7 +13,8 @@ import org.test4j.junit.annotations.DataFrom;
 
 @SuppressWarnings({ "rawtypes" })
 public class AssertTest extends Test4J {
-    @Test
+    
+	@Test
     @DataFrom("assertClass")
     public void wanted(IAssert<?, ?> as, Class claz) {
         want.object(as).propertyEq("valueClaz", claz);

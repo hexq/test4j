@@ -3,15 +3,13 @@ package org.test4j.tools.commons;
 import java.util.Calendar;
 import java.util.Date;
 
-import mockit.Mock;
-import mockit.UsingMocksAndStubs;
-
 import org.test4j.testng.Test4J;
-import org.test4j.tools.commons.DateUtilTest_MockClass.MockDateUtil;
 import org.testng.annotations.Test;
 
+import mockit.Mock;
+
 @Test(groups = "test4j")
-@UsingMocksAndStubs({ MockDateUtil.class })
+//@UsingMocksAndStubs({ MockDateUtil.class })
 public class DateUtilTest_MockClass extends Test4J {
     public static class MockDateUtil extends MockUp<DateHelper> {
         @Mock

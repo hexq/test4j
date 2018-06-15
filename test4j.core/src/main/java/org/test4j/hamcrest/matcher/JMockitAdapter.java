@@ -1,14 +1,17 @@
 package org.test4j.hamcrest.matcher;
 
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.hamcrest.StringDescription;
+import org.hamcrest.core.Is;
+import org.hamcrest.core.IsEqual;
+import org.hamcrest.core.IsNot;
+import org.hamcrest.core.IsSame;
+import org.hamcrest.number.OrderingComparison;
+
 import mockit.internal.expectations.argumentMatching.ArgumentMatcher;
 import mockit.internal.expectations.argumentMatching.ArgumentMismatch;
-import mockit.internal.util.FieldReflection;
-import ext.test4j.hamcrest.Description;
-import ext.test4j.hamcrest.Matcher;
-import ext.test4j.hamcrest.StringDescription;
-import ext.test4j.hamcrest.core.IsEqual;
-import ext.test4j.hamcrest.core.IsSame;
-import ext.test4j.hamcrest.number.OrderingComparison;
+import mockit.internal.reflection.FieldReflection;
 
 /**
  * Adapts the<br>
@@ -18,13 +21,22 @@ import ext.test4j.hamcrest.number.OrderingComparison;
  */
 @SuppressWarnings({ "rawtypes" })
 public final class JMockitAdapter implements ArgumentMatcher {
-    private final Matcher hamcrestMatcher;
+    
+	private final Matcher hamcrestMatcher;
 
     public static JMockitAdapter create(final Matcher matcher) {
         return new JMockitAdapter(matcher);
     }
+    
+    /**
+     * 不确定这么写是否ok
+     */
+    @Override
+	public boolean same(ArgumentMatcher other) {
+		return this == other;
+	}
 
-    private JMockitAdapter(Matcher matcher) {
+	private JMockitAdapter(Matcher matcher) {
         hamcrestMatcher = matcher;
     }
 
@@ -43,8 +55,8 @@ public final class JMockitAdapter implements ArgumentMatcher {
     public Object getInnerValue() {
         Matcher innerMatcher = hamcrestMatcher;
 
-        while (innerMatcher instanceof ext.test4j.hamcrest.core.Is
-                || innerMatcher instanceof ext.test4j.hamcrest.core.IsNot) {
+        while (innerMatcher instanceof Is
+                || innerMatcher instanceof IsNot) {
             innerMatcher = FieldReflection.getField(innerMatcher.getClass(), Matcher.class, innerMatcher);
         }
 

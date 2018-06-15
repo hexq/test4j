@@ -2,15 +2,15 @@ package org.test4j.hamcrest.matcher.array;
 
 import java.util.Collection;
 
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
 import org.test4j.hamcrest.matcher.modes.ItemsMode;
 import org.test4j.tools.commons.ListHelper;
 
-import ext.test4j.hamcrest.BaseMatcher;
-import ext.test4j.hamcrest.Description;
-import ext.test4j.hamcrest.Matcher;
-
 @SuppressWarnings("rawtypes")
 public class ListEveryItemMatcher extends BaseMatcher {
+	
 	private Matcher matcher = null;
 
 	private ItemsMode itemsMode = null;

@@ -1,12 +1,11 @@
 package org.test4j.hamcrest.iassert.common.impl;
 
+import org.hamcrest.Matcher;
+import org.hamcrest.core.AllOf;
 import org.test4j.hamcrest.iassert.common.intf.IAssert;
 import org.test4j.hamcrest.iassert.common.intf.ISizedAssert;
 import org.test4j.hamcrest.matcher.array.SizeOrLengthMatcher;
 import org.test4j.hamcrest.matcher.array.SizeOrLengthMatcher.SizeOrLengthMatcherType;
-
-import ext.test4j.hamcrest.Matcher;
-import ext.test4j.hamcrest.core.AllOf;
 
 @SuppressWarnings("rawtypes")
 public class SizeAssert<T, E extends IAssert> extends ReflectionAssert<T, E> implements IAssert<T, E>, ISizedAssert<E> {

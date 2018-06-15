@@ -1,19 +1,17 @@
 package org.test4j.module.jmockit;
 
-import mockit.Mocked;
-
 import org.test4j.testng.Test4J;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import ext.test4j.hamcrest.core.IsEqual;
+import mockit.Mocked;
 
+@Deprecated
 @Test(groups = "test4j")
 public class JMockitNonStrictExpectationsTest extends Test4J {
     @Mocked
     ISay say;
 
-    @Test
+   /* @Test
     public void testWhen1() {
         new NonStrictExpectations() {
             {
@@ -58,5 +56,5 @@ public class JMockitNonStrictExpectationsTest extends Test4J {
         };
         String result = say.say("davey.wu");
         Assert.assertEquals(result, "hello, davey.wu");
-    }
+    }*/
 }

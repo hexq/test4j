@@ -1,13 +1,14 @@
 package org.test4j.module.jmockit.utility;
 
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.hamcrest.StringDescription;
+
 import mockit.internal.expectations.RecordAndReplayExecution;
 import mockit.internal.expectations.TestOnlyPhase;
 import mockit.internal.expectations.argumentMatching.ArgumentMatcher;
 import mockit.internal.expectations.argumentMatching.ArgumentMismatch;
 import mockit.internal.state.TestRun;
-import ext.test4j.hamcrest.Description;
-import ext.test4j.hamcrest.Matcher;
-import ext.test4j.hamcrest.StringDescription;
 
 /**
  * 用于注册或获取当前线程下当前使用的org.jmock.Expectations实例<br>
@@ -53,8 +54,9 @@ public class ExpectationsUtil {
      * 
      * @param matcher
      */
-    public static void addArgMatcher(ext.test4j.hamcrest.Matcher matcher) {
-        RecordAndReplayExecution instance = TestRun.getRecordAndReplayForRunningTest(false);
+    public static void addArgMatcher(Matcher matcher) {
+//        RecordAndReplayExecution instance = TestRun.getRecordAndReplayForRunningTest(false);
+    	 RecordAndReplayExecution instance = TestRun.getRecordAndReplayForRunningTest();
 
         if (instance == null) {
             return;
@@ -74,6 +76,11 @@ public class ExpectationsUtil {
      */
     public static ArgumentMatcher convert(final Matcher matcher) {
         return new ArgumentMatcher() {
+        	@Override
+			public boolean same(ArgumentMatcher other) {
+				 return this == other;
+			}
+        	
             @Override
             public boolean matches(Object item) {
                 return matcher.matches(item);

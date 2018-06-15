@@ -2,14 +2,14 @@ package org.test4j.module;
 
 import org.test4j.hamcrest.TheStyleAssertion;
 import org.test4j.hamcrest.WantStyleAssertion;
-import org.test4j.module.jmockit.IMockict;
+import org.test4j.module.jmockit.IMockit;
 import org.test4j.tools.commons.Reflector;
 import org.test4j.tools.datagen.AbastractDataGenerator;
 import org.test4j.tools.datagen.AbstractDataMap;
 import org.test4j.tools.datagen.DataProviderIterator;
 
 @SuppressWarnings("serial")
-public interface ICore extends IMockict {
+public interface ICore extends IMockit {
     final WantStyleAssertion want      = new WantStyleAssertion();
 
     final TheStyleAssertion  the       = new TheStyleAssertion();

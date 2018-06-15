@@ -8,9 +8,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import ext.test4j.hamcrest.Description;
-import ext.test4j.hamcrest.SelfDescribing;
-import ext.test4j.hamcrest.StringDescription;
+import org.hamcrest.Description;
+import org.hamcrest.SelfDescribing;
+import org.hamcrest.StringDescription;
 
 /**
  * The static details about a method and the run-time details of its invocation.

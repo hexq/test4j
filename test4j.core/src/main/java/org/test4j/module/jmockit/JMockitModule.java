@@ -2,11 +2,11 @@ package org.test4j.module.jmockit;
 
 import java.lang.reflect.Method;
 
-import mockit.internal.startup.Startup;
-
 import org.test4j.module.core.Module;
 import org.test4j.module.core.TestListener;
 import org.test4j.module.core.utility.MessageHelper;
+
+import mockit.internal.startup.Startup;
 
 public class JMockitModule implements Module {
 

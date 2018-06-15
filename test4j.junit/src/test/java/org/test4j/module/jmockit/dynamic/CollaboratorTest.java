@@ -1,10 +1,10 @@
 package org.test4j.module.jmockit.dynamic;
 
-import mockit.Mock;
-import mockit.Mocked;
-
 import org.junit.Test;
 import org.test4j.junit.Test4J;
+
+import mockit.Mock;
+import mockit.Mocked;
 
 public class CollaboratorTest extends Test4J {
     @Test
@@ -28,7 +28,7 @@ public class CollaboratorTest extends Test4J {
     public void dynamicallyMockAnInstance() {
         final Collaborator collaborator = new Collaborator(2);
 
-        new NonStrictExpectations(collaborator) {
+        new Expectations(collaborator) {
             {
                 when(collaborator.simpleOperation(1, "", null)).thenReturn(false);
                 // Collaborator.doSomething(true, "testedObject");
@@ -52,7 +52,7 @@ public class CollaboratorTest extends Test4J {
     @Test
     public void staticPartialMockAClass() {
         new Expectations() {
-            @Mocked(methods = "getValue")
+            @Mocked/*(methods = "getValue")*/
             Collaborator collaborator;
             {
                 when(new Collaborator().getValue()).thenReturn(123);
@@ -68,7 +68,7 @@ public class CollaboratorTest extends Test4J {
     }
 
     @Test
-    public void staticPartialMockAClass2(@Mocked(methods = "getValue") Collaborator collaborator) {
+    public void staticPartialMockAClass2(@Mocked/*(methods = "getValue") */Collaborator collaborator) {
         new Expectations() {
             {
                 when(new Collaborator().getValue()).thenReturn(123);

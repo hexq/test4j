@@ -5,9 +5,8 @@ import static org.test4j.hamcrest.matcher.property.reflection.ReflectionComparat
 import java.util.Collection;
 import java.util.List;
 
-import ext.test4j.hamcrest.BaseMatcher;
-import ext.test4j.hamcrest.Description;
-
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
 import org.test4j.hamcrest.matcher.property.difference.Difference;
 import org.test4j.hamcrest.matcher.property.reflection.EqMode;
 import org.test4j.hamcrest.matcher.property.reflection.ReflectionComparator;

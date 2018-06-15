@@ -1,10 +1,11 @@
 package org.test4j.hamcrest.matcher.string;
 
-import ext.test4j.hamcrest.Description;
-import ext.test4j.hamcrest.TypeSafeMatcher;
+import org.hamcrest.Description;
+import org.hamcrest.TypeSafeMatcher;
 
 public class StringBlankMatcher extends TypeSafeMatcher<String> {
-	String actual;
+	
+	private String actual;
 
 	public void describeTo(Description description) {
 		description.appendText("expected is empty string, but actual is [" + this.actual + "]");

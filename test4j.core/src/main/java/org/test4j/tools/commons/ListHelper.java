@@ -5,8 +5,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import org.test4j.tools.commons.ArrayHelper;
-
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class ListHelper {
 
@@ -17,7 +15,7 @@ public class ListHelper {
 	 * @return
 	 */
 	public static <T> List toList(T... objects) {
-		List list = new ArrayList();
+		List<T> list = new ArrayList<T>();
 		if (objects == null || objects.length == 0) {
 			return list;
 		}
@@ -25,8 +23,8 @@ public class ListHelper {
 			list = toList(objects[0], false);
 			return list;
 		} else {
-			for (Object o : objects) {
-				list.add(o);
+			for (T obj : objects) {
+				list.add(obj);
 			}
 			return list;
 		}

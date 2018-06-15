@@ -1,8 +1,7 @@
 package org.test4j.hamcrest.iassert.common.impl;
 
-import ext.test4j.hamcrest.Matcher;
-import ext.test4j.hamcrest.core.AllOf;
-
+import org.hamcrest.Matcher;
+import org.hamcrest.core.AllOf;
 import org.test4j.hamcrest.iassert.common.intf.IAssert;
 import org.test4j.hamcrest.iassert.common.intf.IComparableAssert;
 import org.test4j.hamcrest.matcher.mockito.GreaterOrEqual;

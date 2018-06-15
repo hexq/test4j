@@ -1,7 +1,7 @@
 package org.test4j.hamcrest.matcher.clazz;
 
-import ext.test4j.hamcrest.BaseMatcher;
-import ext.test4j.hamcrest.Description;
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
 
 @SuppressWarnings("rawtypes")
 public class IsTypesMatcher extends BaseMatcher {

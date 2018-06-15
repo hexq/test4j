@@ -4,6 +4,8 @@ import static org.test4j.hamcrest.matcher.property.reflection.ReflectionComparat
 
 import java.util.List;
 
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
 import org.test4j.hamcrest.matcher.property.difference.Difference;
 import org.test4j.hamcrest.matcher.property.reflection.EqMode;
 import org.test4j.hamcrest.matcher.property.reflection.ReflectionComparator;
@@ -12,9 +14,6 @@ import org.test4j.hamcrest.matcher.property.report.DifferenceReport;
 import org.test4j.tools.commons.ArrayHelper;
 import org.test4j.tools.commons.ListHelper;
 import org.test4j.tools.reflector.PropertyAccessor;
-
-import ext.test4j.hamcrest.BaseMatcher;
-import ext.test4j.hamcrest.Description;
 
 @SuppressWarnings("rawtypes")
 public class PropertyEqualMatcher extends BaseMatcher {

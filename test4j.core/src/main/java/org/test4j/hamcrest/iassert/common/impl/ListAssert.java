@@ -2,6 +2,7 @@ package org.test4j.hamcrest.iassert.common.impl;
 
 import java.util.List;
 
+import org.hamcrest.Matcher;
 import org.test4j.hamcrest.iassert.common.intf.IAssert;
 import org.test4j.hamcrest.iassert.common.intf.IListAssert;
 import org.test4j.hamcrest.matcher.modes.ItemsMode;
@@ -14,10 +15,9 @@ import org.test4j.module.ICore.DataMap;
 import org.test4j.tools.commons.ListHelper;
 import org.test4j.tools.datagen.DataSet;
 
-import ext.test4j.hamcrest.Matcher;
-
 @SuppressWarnings("rawtypes")
 public class ListAssert<T, E extends IAssert> extends SizeAssert<T, E> implements IAssert<T, E>, IListAssert<T, E> {
+	
 	public ListAssert(Class<? extends IAssert> clazE) {
 		super(clazE);
 	}

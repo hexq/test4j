@@ -4,26 +4,26 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 
-import mockit.Mock;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.test4j.junit.Test4J;
 import org.test4j.module.core.utility.MessageHelper;
 
+import mockit.Mock;
+
 @SuppressWarnings("rawtypes")
 public class ServiceATest_Test4J extends Test4J {
 
     public static class MockDatabase extends MockUp<Database> {
-        @Mock(invocations = 1)
+        @Mock /*(invocations = 1) */
         public static List<?> find(String ql, Object arg1) {
             want.string(ql).notNull();
             want.object(arg1).notNull();
             return Collections.EMPTY_LIST;
         }
 
-        @Mock(maxInvocations = 1)
+        @Mock /* (maxInvocations = 1) */
         public static void save(Object o) {
             want.object(o).notNull();
         }
@@ -38,7 +38,7 @@ public class ServiceATest_Test4J extends Test4J {
 
     @After
     public void tearDown() {
-        mockup.tearDown();
+//        mockup.tearDown();
     }
 
     @Test
@@ -47,7 +47,7 @@ public class ServiceATest_Test4J extends Test4J {
 
         MessageHelper.info("doBusinessOperationXyz-test4j");
         new MockUp(ServiceB.class) {
-            @Mock(invocations = 1)
+            @Mock/*(invocations = 1)*/
             public BigDecimal computeTotal(List<?> items) {
                 want.collection(items).notNull();
                 return total;

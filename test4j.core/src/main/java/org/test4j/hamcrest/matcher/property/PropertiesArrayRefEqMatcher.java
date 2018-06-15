@@ -1,8 +1,7 @@
 package org.test4j.hamcrest.matcher.property;
 
-import ext.test4j.hamcrest.BaseMatcher;
-import ext.test4j.hamcrest.Description;
-
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
 import org.test4j.hamcrest.matcher.property.reflection.EqMode;
 import org.test4j.tools.commons.StringHelper;
 import org.test4j.tools.reflector.PropertyAccessor;

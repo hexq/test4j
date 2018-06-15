@@ -3,11 +3,10 @@ package org.test4j.hamcrest.matcher.property;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hamcrest.MatcherAssert;
 import org.test4j.fortest.beans.User;
 import org.test4j.testng.Test4J;
 import org.testng.annotations.Test;
-
-import ext.test4j.hamcrest.MatcherAssert;
 
 @SuppressWarnings("unchecked")
 @Test(groups = { "test4j", "assertion" })

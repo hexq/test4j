@@ -2,12 +2,11 @@
  */
 package ext.test4j.hamcrest;
 
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.hamcrest.StringDescription;
 import org.test4j.module.ICore;
 import org.testng.annotations.Test;
-
-import ext.test4j.hamcrest.Description;
-import ext.test4j.hamcrest.Matcher;
-import ext.test4j.hamcrest.StringDescription;
 
 public abstract class AbstractMatcherTest implements ICore {
 

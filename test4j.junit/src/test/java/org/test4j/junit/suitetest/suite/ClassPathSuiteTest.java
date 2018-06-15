@@ -9,9 +9,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import mockit.Mock;
-import mockit.Mocked;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.model.InitializationError;
@@ -24,12 +21,15 @@ import org.test4j.junit.filter.finder.FilterCondiction;
 import org.test4j.junit.filter.finder.TestClazFinder;
 import org.test4j.module.ICore;
 
+import mockit.Mock;
+import mockit.Mocked;
+
 @SuppressWarnings("unchecked")
 public class ClassPathSuiteTest implements ICore {
 
     private TestClazFinder finder;
 
-    @Mocked({ "runners" })
+    @Mocked
     private RunnerBuilder  builder;
 
     @RunWith(ClassPathSuite.class)
@@ -38,14 +38,14 @@ public class ClassPathSuiteTest implements ICore {
 
     @Test
     public void findWithDefaultValues() throws InitializationError {
-        finder = new MockUp<TestClazFinder>() {
+        new MockUp<TestClazFinder>() {
             @Mock
             public List<Class<?>> find() {
                 return Collections.EMPTY_LIST;
             }
-        }.getMockInstance();
+        };
         new MockUp<ClasspathFilterFactory>() {
-            @Mock(invocations = 1)
+            @Mock
             public TestClazFinder create(FilterCondiction testerFilter) {
                 want.object(testerFilter).reflectionEq(
                         new FilterCondiction(false, new String[0], new SuiteType[] { JUNT4_TEST_CLASSES },
@@ -63,14 +63,14 @@ public class ClassPathSuiteTest implements ICore {
 
     @Test
     public void findWithComplexValues() throws InitializationError {
-        finder = new MockUp<TestClazFinder>() {
+        new MockUp<TestClazFinder>() {
             @Mock
             public List<Class<?>> find() {
                 return Collections.EMPTY_LIST;
             }
-        }.getMockInstance();
+        };
         new MockUp<ClasspathFilterFactory>() {
-            @Mock(invocations = 1)
+            @Mock
             public TestClazFinder create(FilterCondiction testerFilter) {
                 want.object(testerFilter).reflectionEq(
                         new FilterCondiction(true, new String[] { "filter1", "!filter2" }, new SuiteType[] {
@@ -93,14 +93,14 @@ public class ClassPathSuiteTest implements ICore {
         final List<Class<?>> listOfClasses = new ArrayList<Class<?>>();
         listOfClasses.add(Test2.class);
         listOfClasses.add(Test1.class);
-        finder = new MockUp<TestClazFinder>() {
+        new MockUp<TestClazFinder>() {
             @Mock
             public List<Class<?>> find() {
                 return listOfClasses;
             }
-        }.getMockInstance();
+        };
         new MockUp<ClasspathFilterFactory>() {
-            @Mock(invocations = 1)
+            @Mock
             public TestClazFinder create(FilterCondiction testerFilter) {
                 return finder;
             }

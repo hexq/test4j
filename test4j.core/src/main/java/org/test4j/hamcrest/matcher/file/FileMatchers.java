@@ -3,10 +3,10 @@ package org.test4j.hamcrest.matcher.file;
 import java.io.File;
 import java.io.IOException;
 
-import ext.test4j.hamcrest.Description;
-import ext.test4j.hamcrest.Matcher;
-import ext.test4j.hamcrest.TypeSafeMatcher;
-import ext.test4j.hamcrest.core.IsEqual;
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.hamcrest.TypeSafeMatcher;
+import org.hamcrest.core.IsEqual;
 
 @SuppressWarnings("rawtypes")
 public class FileMatchers {

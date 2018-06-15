@@ -22,8 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import mockit.MockUp;
-
+import org.objenesis.ObjenesisHelper;
 import org.test4j.module.Test4JException;
 import org.test4j.module.core.utility.MessageHelper;
 import org.test4j.tools.datagen.ConstructorArgsGenerator;
@@ -31,7 +30,7 @@ import org.test4j.tools.exception.NewInstanceException;
 import org.test4j.tools.reflector.MethodAccessor;
 
 import ext.test4j.apache.commons.io.IOUtils;
-import ext.test4j.objenesis.ObjenesisHelper;
+import mockit.MockUp;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class ClazzHelper {
@@ -427,8 +426,7 @@ public class ClazzHelper {
 
     private static <T> T innerNewInstance(Class<T> claz) {
         if (claz.isInterface()) {
-            return (T) new MockUp(claz) {
-            }.getMockInstance();
+        	return (T) new MockUp(claz){};
         }
         int modifiers = claz.getModifiers();
         if (Modifier.isAbstract(modifiers)) {

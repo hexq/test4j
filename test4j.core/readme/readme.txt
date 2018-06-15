@@ -1,3 +1,8 @@
+2.1.0
+o 使用新的test4j.nodep的应用，解决了相关的编译错误
+ClazzHelper.java
+
+
 2.0.2
 o 优化JSpec执行场景步骤抛出异常时的描述信息。
 o 改进JSpec执行测试场景的printer实现

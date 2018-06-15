@@ -4,6 +4,9 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import org.hamcrest.Matcher;
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.core.Is;
 import org.test4j.hamcrest.iassert.common.impl.AllAssert;
 import org.test4j.hamcrest.iassert.common.intf.IAssert;
 import org.test4j.hamcrest.iassert.object.intf.ICollectionAssert;
@@ -15,10 +18,6 @@ import org.test4j.json.helper.JSONMap;
 import org.test4j.json.helper.JSONObject;
 import org.test4j.json.helper.JSONScanner;
 import org.test4j.json.helper.JSONSingle;
-
-import ext.test4j.hamcrest.Matcher;
-import ext.test4j.hamcrest.MatcherAssert;
-import ext.test4j.hamcrest.core.Is;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class JSONAssert extends AllAssert<Object, JSONAssert> implements IJSONAssert {

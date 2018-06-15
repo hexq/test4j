@@ -1,11 +1,12 @@
 package org.test4j.hamcrest.matcher.string;
 
-import ext.test4j.hamcrest.Description;
-import ext.test4j.hamcrest.Factory;
-import ext.test4j.hamcrest.Matcher;
-import ext.test4j.hamcrest.TypeSafeMatcher;
+import org.hamcrest.Description;
+import org.hamcrest.Factory;
+import org.hamcrest.Matcher;
+import org.hamcrest.TypeSafeMatcher;
 
 public class StringContainsInOrder extends TypeSafeMatcher<String> {
+	
 	private final Iterable<String> substrings;
 
 	private final StringMode[] modes;

@@ -1,10 +1,9 @@
 package org.test4j.hamcrest.iassert.common.intf;
 
+import org.hamcrest.Matcher;
 import org.test4j.hamcrest.matcher.property.reflection.EqMode;
 import org.test4j.hamcrest.matcher.string.StringMode;
 import org.test4j.module.ICore.DataMap;
-
-import ext.test4j.hamcrest.Matcher;
 
 /**
  * 针对对象属性进行断言

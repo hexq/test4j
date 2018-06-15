@@ -3,11 +3,10 @@ package org.test4j.hamcrest.matcher.property;
 import java.util.Arrays;
 import java.util.List;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 import org.test4j.fortest.beans.User;
 import org.test4j.junit.Test4J;
-
-import ext.test4j.hamcrest.MatcherAssert;
 
 @SuppressWarnings("unchecked")
 public class PropertyAnyItemMatcherTest extends Test4J {

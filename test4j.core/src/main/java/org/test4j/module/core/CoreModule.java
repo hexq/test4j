@@ -8,16 +8,15 @@ import org.test4j.module.core.utility.ConfigurationLoader;
 import org.test4j.module.core.utility.MessageHelper;
 import org.test4j.module.core.utility.ModulesLoader;
 import org.test4j.module.core.utility.ModulesManager;
-import org.test4j.module.jmockit.utility.JMockitModuleHelper;
 import org.test4j.tools.commons.ConfigHelper;
 
 /**
  * test4j的核心类，所有事件监听器的总入口<br>
  */
 public class CoreModule {
-    static {
+   /* static {
         JMockitModuleHelper.getJMockitJavaagentHit();
-    }
+    }*/
     private static CoreModule instance;
 
     /**

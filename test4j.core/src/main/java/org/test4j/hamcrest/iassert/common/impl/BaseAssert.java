@@ -1,26 +1,24 @@
 package org.test4j.hamcrest.iassert.common.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.hamcrest.Matcher;
+import org.hamcrest.collection.IsIn;
+import org.hamcrest.core.AllOf;
+import org.hamcrest.core.AnyOf;
+import org.hamcrest.core.Is;
+import org.hamcrest.core.IsAnything;
+import org.hamcrest.core.IsEqual;
+import org.hamcrest.core.IsNot;
+import org.hamcrest.core.IsNull;
+import org.hamcrest.core.IsSame;
+import org.hamcrest.object.HasToString;
 import org.test4j.hamcrest.iassert.common.intf.IAssert;
 import org.test4j.hamcrest.iassert.common.intf.IBaseAssert;
 import org.test4j.hamcrest.iassert.object.impl.StringAssert;
 import org.test4j.hamcrest.iassert.object.intf.IStringAssert;
 import org.test4j.hamcrest.matcher.clazz.ClassAssignFromMatcher;
 import org.test4j.tools.commons.ListHelper;
-
-import ext.test4j.hamcrest.Matcher;
-import ext.test4j.hamcrest.collection.IsIn;
-import ext.test4j.hamcrest.core.AllOf;
-import ext.test4j.hamcrest.core.AnyOf;
-import ext.test4j.hamcrest.core.Is;
-import ext.test4j.hamcrest.core.IsAnything;
-import ext.test4j.hamcrest.core.IsEqual;
-import ext.test4j.hamcrest.core.IsNot;
-import ext.test4j.hamcrest.core.IsNull;
-import ext.test4j.hamcrest.core.IsSame;
-import ext.test4j.hamcrest.object.HasToString;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class BaseAssert<T, E extends IAssert> extends Assert<T, E> implements IAssert<T, E>, IBaseAssert<T, E> {
@@ -41,9 +39,13 @@ public class BaseAssert<T, E extends IAssert> extends Assert<T, E> implements IA
 		return this.assertThat(matcher);
 	}
 
+	/**
+	 * 做了修改，见注释
+	 */
 	public E eq(T expected) {
-		Matcher matcher = IsEqual.equalTo(expected);
-		return this.assertThat(matcher);
+		return isEqualTo(expected);
+//		Matcher matcher = IsEqual.equalTo(expected);
+//		return this.assertThat(matcher);
 	}
 
 	public E isEqualTo(String message, T expected) {
@@ -71,15 +73,23 @@ public class BaseAssert<T, E extends IAssert> extends Assert<T, E> implements IA
 		return this.assertThat(_matcher);
 	}
 
+	/**
+	 * 做了修改，见注释
+	 */
 	public E all(E matcher, E... matchers) {
-		List<Matcher> list = ListHelper.toList(matchers);
+//		List<Matcher> list = ListHelper.toList(matchers);
+		List<Matcher<? super T>> list = ListHelper.toList(matchers);
 		list.add(matcher);
 		Matcher _matcher = AllOf.allOf(list);
 		return this.assertThat(_matcher);
 	}
 
+	/**
+	 * 做了修改，见注释
+	 */
 	public E any(E matcher, E... matchers) {
-		List<Matcher> list = ListHelper.toList(matchers);
+//		List<Matcher> list = ListHelper.toList(matchers);
+		List<Matcher<? super T>> list = ListHelper.toList(matchers);
 		list.add(matcher);
 		Matcher _matcher = AnyOf.anyOf(list);
 		return this.assertThat(_matcher);
@@ -126,12 +136,12 @@ public class BaseAssert<T, E extends IAssert> extends Assert<T, E> implements IA
 	}
 
 	public E eqToString(String expected) {
-		HasToString matcher = HasToString.hasToString(expected);
+		Matcher matcher = HasToString.hasToString(expected);
 		return this.assertThat(matcher);
 	}
 
 	public E eqToString(IStringAssert matcher) {
-		HasToString _matcher = HasToString.hasToString(matcher);
+		Matcher _matcher = HasToString.hasToString(matcher);
 		return this.assertThat(_matcher);
 	}
 
@@ -145,23 +155,35 @@ public class BaseAssert<T, E extends IAssert> extends Assert<T, E> implements IA
 		return (IStringAssert) matcher;
 	}
 
+	/**
+	 * 做了修改，见注释
+	 */
 	public E notAny(Matcher matcher, Matcher... matchers) {
-		List<Matcher> ms = new ArrayList<Matcher>();
-		ms.add(matcher);
-		for (Matcher m : matchers) {
-			ms.add(m);
-		}
-		Matcher _matcher = AnyOf.notAny(ms);
+//		List<Matcher> ms = new ArrayList<>();
+//		ms.add(matcher);
+//		for (Matcher m : matchers) {
+//			ms.add(m);
+//		}
+//		Matcher _matcher = AnyOf.notAny(AnyOf.anyOf(ms));
+//		return this.assertThat(_matcher);
+		
+		Matcher _matcher = IsNot.not(AnyOf.anyOf(matchers));
 		return this.assertThat(_matcher);
 	}
 
+	/**
+	 * 做了修改，见注释
+	 */
 	public E notAll(Matcher matcher, Matcher... matchers) {
-		List<Matcher> ms = new ArrayList<Matcher>();
-		ms.add(matcher);
-		for (Matcher m : matchers) {
-			ms.add(m);
-		}
-		Matcher _matcher = AllOf.notAll(ms);
+//		List<Matcher> ms = new ArrayList<Matcher>();
+//		ms.add(matcher);
+//		for (Matcher m : matchers) {
+//			ms.add(m);
+//		}
+//		Matcher _matcher = AllOf.notAll(ms);
+//		return this.assertThat(_matcher);
+		
+		Matcher _matcher = IsNot.not(AllOf.allOf(matchers));
 		return this.assertThat(_matcher);
 	}
 }

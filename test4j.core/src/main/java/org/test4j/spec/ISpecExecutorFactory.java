@@ -4,8 +4,8 @@ import java.util.Map;
 
 import org.test4j.spec.inner.IScenario;
 import org.test4j.spec.inner.ISpecMethod;
-import org.test4j.spec.inner.ISpecPrinter;
 import org.test4j.spec.inner.ISpecMethod.SpecMethodID;
+import org.test4j.spec.inner.ISpecPrinter;
 import org.test4j.tools.datagen.DataProviderIterator;
 
 /**

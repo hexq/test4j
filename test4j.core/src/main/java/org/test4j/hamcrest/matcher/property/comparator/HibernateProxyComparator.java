@@ -1,10 +1,14 @@
 package org.test4j.hamcrest.matcher.property.comparator;
 
+import static org.test4j.hamcrest.matcher.property.reflection.HibernateUtil.getEntitiyName;
+import static org.test4j.hamcrest.matcher.property.reflection.HibernateUtil.getIdentifier;
+import static org.test4j.hamcrest.matcher.property.reflection.HibernateUtil.getUnproxiedValue;
+import static org.test4j.hamcrest.matcher.property.reflection.HibernateUtil.isHibernateProxy;
+import static org.test4j.hamcrest.matcher.property.reflection.HibernateUtil.isUninitialized;
+
 import org.test4j.hamcrest.matcher.property.difference.Difference;
 import org.test4j.hamcrest.matcher.property.difference.ObjectDifference;
 import org.test4j.hamcrest.matcher.property.reflection.ReflectionComparator;
-
-import static org.test4j.hamcrest.matcher.property.reflection.HibernateUtil.*;
 
 /**
  * Comparator that can handle Hibernate proxies.

@@ -2,7 +2,7 @@ package org.test4j.spec;
 
 import org.test4j.module.ICore;
 import org.test4j.module.database.IDatabase;
-import org.test4j.module.jmockit.IMockict;
+import org.test4j.module.jmockit.IMockit;
 import org.test4j.module.spring.ISpring;
 
 /**
@@ -11,7 +11,7 @@ import org.test4j.module.spring.ISpring;
  * 
  * @author darui.wudr 2013-6-3 下午7:04:36
  */
-public interface Steps<T extends SharedData> extends ICore, IMockict, ISpring, IDatabase {
+public interface Steps<T extends SharedData> extends ICore, IMockit, ISpring, IDatabase {
     /**
      * 设置共享数据
      * 

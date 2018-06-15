@@ -14,21 +14,22 @@ import org.test4j.junit.parametermethod.FrameworkMethodWithParameters;
 import org.test4j.junit.parametermethod.ParameterDataFromHelper;
 import org.test4j.junit.statement.MethodAroundStatement;
 import org.test4j.junit.statement.TestAroundStatement;
+import org.test4j.module.core.ClazzAroundObject.ClazzBeforeObject;
 import org.test4j.module.core.CoreModule;
 import org.test4j.module.core.TestContext;
 import org.test4j.module.core.TestListener;
-import org.test4j.module.core.ClazzAroundObject.ClazzBeforeObject;
 import org.test4j.tools.commons.MethodHelper;
 
 @SuppressWarnings({ "rawtypes" })
 public class Test4JRunner extends BlockJUnit4ClassRunner {
-    static {
+    
+	static {
         CoreModule.initSingletonInstance();
     }
 
-    private Object           testedObject = null;
-
-    private final Class      testClazz;
+    private Object testedObject = null;
+    
+    private final Class  testClazz;
 
     private RuntimeException error;
 

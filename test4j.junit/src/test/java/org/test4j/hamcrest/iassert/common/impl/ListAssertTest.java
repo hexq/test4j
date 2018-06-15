@@ -13,7 +13,8 @@ import org.test4j.junit.Test4J;
 
 @SuppressWarnings({ "serial", "rawtypes", "unchecked" })
 public class ListAssertTest extends Test4J {
-    List<User> users;
+   
+	List<User> users;
 
     @Before
     public void initData() {

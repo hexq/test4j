@@ -2,8 +2,8 @@ package org.test4j.hamcrest.matcher.file;
 
 import java.io.File;
 
-import ext.test4j.hamcrest.BaseMatcher;
-import ext.test4j.hamcrest.Description;
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
 
 public class FileExistsMatcher extends BaseMatcher<File> {
 	private File expected;

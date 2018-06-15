@@ -3,26 +3,28 @@ package org.test4j.module.jmockit.demo;
 import java.util.Observable;
 import java.util.concurrent.Callable;
 
-import mockit.Capturing;
-import mockit.Mocked;
-import mockit.Verifications;
-
 import org.junit.Test;
 import org.test4j.junit.Test4J;
 
+import mockit.Mocked;
+import mockit.Verifications;
+
+@Deprecated
 public class InternalInstancesDemoTest extends Test4J {
     @Mocked
-    @Capturing(maxInstances = 10)
+//    @Capturing(maxInstances = 10)
     Service service;
 
     @Test
-    public void captureAllInternallyCreatedInstances(@Mocked @Capturing(maxInstances = 1) final Callable<?> callable)
+    public void captureAllInternallyCreatedInstances(
+//    		@Mocked @Capturing(maxInstances = 1) 
+    	final Callable<?> callable)
             throws Exception {
         Service initialMockService = service;
 
-        new NonStrictExpectations() {
+        new Expectations() {
             @Mocked
-            @Capturing(maxInstances = 1)
+//            @Capturing(maxInstances = 1)
             Observable observable;
             {
                 service.doSomething();

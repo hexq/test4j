@@ -1,5 +1,9 @@
 package org.test4j.hamcrest.iassert.common.impl;
 
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.hamcrest.MatcherAssert;
 import org.test4j.hamcrest.TheStyleAssertion;
 import org.test4j.hamcrest.iassert.common.intf.IAssert;
 import org.test4j.hamcrest.matcher.LinkMatcher;
@@ -9,11 +13,6 @@ import org.test4j.module.jmockit.utility.ExpectationsUtil;
 import org.test4j.tools.commons.PrimitiveHelper;
 import org.test4j.tools.reflector.MethodAccessor;
 
-import ext.test4j.hamcrest.BaseMatcher;
-import ext.test4j.hamcrest.Description;
-import ext.test4j.hamcrest.Matcher;
-import ext.test4j.hamcrest.MatcherAssert;
-
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public abstract class Assert<T, E extends IAssert> extends BaseMatcher<T> implements IAssert<T, E> {
 	protected static final TheStyleAssertion the = new TheStyleAssertion();
@@ -21,7 +20,7 @@ public abstract class Assert<T, E extends IAssert> extends BaseMatcher<T> implem
 	protected Class valueClaz = null;
 
 	protected Object value;
-
+	
 	protected AssertType type;
 
 	protected Class<? extends IAssert> assertClaz;

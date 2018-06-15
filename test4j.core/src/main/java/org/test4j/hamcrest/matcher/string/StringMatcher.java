@@ -1,9 +1,10 @@
 package org.test4j.hamcrest.matcher.string;
 
-import ext.test4j.hamcrest.Description;
-import ext.test4j.hamcrest.TypeSafeMatcher;
+import org.hamcrest.Description;
+import org.hamcrest.TypeSafeMatcher;
 
 public abstract class StringMatcher extends TypeSafeMatcher<String> {
+	
 	protected StringMode[] modes = null;
 
 	protected String expected;

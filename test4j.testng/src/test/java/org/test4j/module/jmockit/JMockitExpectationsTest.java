@@ -1,13 +1,13 @@
 package org.test4j.module.jmockit;
 
-import mockit.Mocked;
-import mockit.internal.UnexpectedInvocation;
-
 import org.test4j.fortest.service.CalledService;
 import org.test4j.fortest.service.CallingService;
 import org.test4j.module.inject.annotations.Inject;
 import org.test4j.testng.Test4J;
 import org.testng.annotations.Test;
+
+import mockit.Mocked;
+import mockit.internal.expectations.invocation.UnexpectedInvocation;
 
 @Test(groups = { "test4j" })
 public class JMockitExpectationsTest extends Test4J {

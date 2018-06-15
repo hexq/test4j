@@ -1,27 +1,27 @@
 package org.test4j.module.jmockit.extend;
 
-import mockit.Expectations;
-import mockit.Mocked;
-import mockit.internal.expectations.argumentMatching.ArgumentMatcher;
-import mockit.internal.expectations.transformation.ActiveInvocations;
-
+import org.hamcrest.Matcher;
 import org.test4j.hamcrest.TheStyleAssertion;
 import org.test4j.hamcrest.matcher.JMockitAdapter;
 import org.test4j.module.jmockit.utility.ExpectationsUtil;
 import org.test4j.tools.reflector.MethodAccessor;
 
-import ext.test4j.hamcrest.Matcher;
+import mockit.Expectations;
+import mockit.Mocked;
+import mockit.internal.expectations.ActiveInvocations;
+import mockit.internal.expectations.argumentMatching.ArgumentMatcher;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class JMockitExpectations extends Expectations implements Test4JInvocations {
-    @Mocked({ "" })
-    protected InvokeTimes             invokerTimes;
+    
+	@Mocked
+    protected InvokeTimes invokeTimes;
 
-    @Mocked({ "" })
-    protected ExpectationsResult      expectationsResult;
+    @Mocked
+    protected ExpectationsResult expectationsResult;
 
-    @Mocked({ "" })
-    protected final TheStyleAssertion the;
+    @Mocked
+    protected TheStyleAssertion the;
 
     public JMockitExpectations() {
         super();
@@ -47,7 +47,7 @@ public class JMockitExpectations extends Expectations implements Test4JInvocatio
 
     @Override
     public void thenReturn(Object value) {
-        super.returns(value);
+    	super.result = value; 
     }
 
     public void thenThrow(Throwable e) {
@@ -60,7 +60,7 @@ public class JMockitExpectations extends Expectations implements Test4JInvocatio
     }
 
     public void thenDo(Delegate delegate) {
-        super.returns(delegate);
+        super.returns(delegate, null);
     }
 
     public <T> T any(Class<T> claz) {

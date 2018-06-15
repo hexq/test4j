@@ -1,16 +1,11 @@
 package org.test4j.module.jmockit;
 
-import mockit.Mocked;
-
-import org.junit.Assert;
-import org.junit.Test;
 import org.test4j.module.ICore;
 
-import ext.test4j.hamcrest.core.IsEqual;
-
 //@RunWith(Test4JRunner.class)
+@Deprecated
 public class JMockitNonStrictExpectationsTest implements ICore {
-    @Mocked
+   /* @Mocked
     ISay say;
 
     @Test
@@ -57,5 +52,5 @@ public class JMockitNonStrictExpectationsTest implements ICore {
         };
         String result = say.say("davey.wu");
         Assert.assertEquals(result, "hello, davey.wu");
-    }
+    }*/
 }

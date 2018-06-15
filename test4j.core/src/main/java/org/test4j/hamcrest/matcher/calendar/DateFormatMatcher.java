@@ -4,10 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
 import org.test4j.module.Test4JException;
-
-import ext.test4j.hamcrest.BaseMatcher;
-import ext.test4j.hamcrest.Description;
 
 /**
  * Calendar或Date的格式化值等于期望值断言器

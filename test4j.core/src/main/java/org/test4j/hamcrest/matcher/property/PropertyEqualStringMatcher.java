@@ -1,11 +1,10 @@
 package org.test4j.hamcrest.matcher.property;
 
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
 import org.test4j.hamcrest.matcher.string.StringMode;
 import org.test4j.tools.commons.ArrayHelper;
 import org.test4j.tools.reflector.PropertyAccessor;
-
-import ext.test4j.hamcrest.BaseMatcher;
-import ext.test4j.hamcrest.Description;
 
 @SuppressWarnings("rawtypes")
 public class PropertyEqualStringMatcher extends BaseMatcher {

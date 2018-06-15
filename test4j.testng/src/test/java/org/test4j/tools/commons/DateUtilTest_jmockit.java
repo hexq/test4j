@@ -20,7 +20,7 @@ public class DateUtilTest_jmockit extends Test4J {
     @Test
     public void testCurrDateStr_mockExpectations() {
         new Expectations() {
-            @Mocked("now")
+            @Mocked
             DateHelper dateUtil;
             {
                 DateHelper.now();
@@ -33,7 +33,7 @@ public class DateUtilTest_jmockit extends Test4J {
 
     public void testCurrDateTimeStr_Delegate() {
         new Expectations() {
-            @Mocked("now")
+            @Mocked
             DateHelper dateUtil;
             {
                 DateHelper.now();
@@ -85,7 +85,7 @@ public class DateUtilTest_jmockit extends Test4J {
 
     public void testCurrDateTimeStr_Delegate2() {
         new Expectations() {
-            @Mocked("now")
+            @Mocked
             DateHelper dateUtil;
             {
                 DateHelper.now();
