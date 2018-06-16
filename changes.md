@@ -1,5 +1,5 @@
 
-###3.0.1###
+###3.0.0(2018.6.16)###
 - 熟悉JMockit的过程中发现一个很不错的关于JMockit的中文网站：http://jmockit.cn/，值得一看
 - 经过JMockit和Test4J的对比测试发现，Test4J的new Expectations{}的record和replay阶段都是record阶段，
   初步分析是Test4j中实现的new Expectations{}的内部类在执行完后没有完成阶段的切换，而阶段切换是在
