@@ -47,7 +47,7 @@ public class JMockitExpectations extends Expectations implements Test4JInvocatio
 
     @Override
     public void thenReturn(Object value) {
-    	super.result = value; 
+    		this.thenReturn(value);
     }
 
     public void thenThrow(Throwable e) {

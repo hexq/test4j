@@ -7,6 +7,7 @@ import org.test4j.module.jmockit.extend.JMockitExpectations;
  */
 @SuppressWarnings("rawtypes")
 public interface IMockit {
+	
     class Expectations extends JMockitExpectations {
 
         public Expectations() {
