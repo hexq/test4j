@@ -142,7 +142,17 @@ public class Test4JRunner extends BlockJUnit4ClassRunner {
         }
         return this.testMethods;
     }
-
+    
+    
+//    protected void collectInitializationErrors(List<Throwable> errors) {}
+    
+    //too complicated to overwrite collectInitializationErrors method, 
+    //using overwrite validateTestMethods instead.
+    //do nothing here below
+    protected void validateTestMethods(List<Throwable> errors) {
+//        validatePublicVoidNoArgMethods(Test.class, false, errors);
+    }
+    
     /**
      * @return The test listener
      */
