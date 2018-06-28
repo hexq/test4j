@@ -16,14 +16,14 @@ import org.test4j.module.core.utility.MessageHelper;
 public class ServiceATest extends Test4J {
 
     public static class MockDatabase extends MockUp<Database> {
-        @Mock(invocations = 1)
+        @Mock /*(invocations = 1) */
         public static List<?> find(String ql, Object arg1) {
             want.string(ql).notNull();
             want.object(arg1).notNull();
             return Collections.EMPTY_LIST;
         }
 
-        @Mock(maxInvocations = 1)
+        @Mock /*(maxInvocations = 1) */
         public static void save(Object o) {
             want.object(o).notNull();
         }
@@ -38,7 +38,7 @@ public class ServiceATest extends Test4J {
 
     @After
     public void tearDown() {
-        mock.tearDown();
+//        mock.tearDown();
     }
 
     @Test
@@ -47,7 +47,7 @@ public class ServiceATest extends Test4J {
 
         MessageHelper.info("doBusinessOperationXyz-test");
         new MockUp(ServiceB.class) {
-            @Mock(invocations = 1)
+            @Mock /* (invocations = 1) */
             public BigDecimal computeTotal(List<?> items) {
                 want.collection(items).notNull();
                 return total;

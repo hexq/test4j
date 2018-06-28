@@ -1,13 +1,9 @@
 package org.test4j.module.jmockit.utility;
 
-import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.util.regex.Pattern;
 
 import mockit.Mocked;
-
-import org.test4j.module.core.utility.MessageHelper;
 
 public class JMockitModuleHelper {
     /**
@@ -27,16 +23,16 @@ public class JMockitModuleHelper {
         }
     }
 
-    private static final Pattern JAR_REGEX      = Pattern.compile(".*test4j\\.nodep[-._\\d]*(-SNAPSHOT)?.jar");
+   /* private static final Pattern JAR_REGEX      = Pattern.compile(".*test4j\\.nodep[-._\\d]*(-SNAPSHOT)?.jar");
     private static final String  Nodep_Jar_Path = "test4j.nodep.jar";
 
     private static String        hitsMessage    = null;
 
-    /**
+    *//**
      * 返回 -javaagent:.../test4j-nodep.xxx.jar 提示
      * 
      * @return
-     */
+     *//*
     public static String getJMockitJavaagentHit() {
         if (hitsMessage == null) {
             String jarPath = getJMockitJarPath();
@@ -66,5 +62,5 @@ public class JMockitModuleHelper {
             }
         }
         return Nodep_Jar_Path;
-    }
+    }*/
 }

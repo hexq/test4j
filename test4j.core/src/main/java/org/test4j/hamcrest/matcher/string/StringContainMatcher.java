@@ -1,7 +1,7 @@
 package org.test4j.hamcrest.matcher.string;
 
-import ext.test4j.hamcrest.Description;
-import ext.test4j.hamcrest.TypeSafeMatcher;
+import org.hamcrest.Description;
+import org.hamcrest.TypeSafeMatcher;
 
 /**
  * 经过模式处理后，判断一个字符串是否包含另外一个字符串

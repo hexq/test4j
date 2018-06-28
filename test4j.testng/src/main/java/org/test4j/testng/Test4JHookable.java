@@ -121,7 +121,7 @@ public abstract class Test4JHookable implements IHookable, ICore {
         if (this.isJMockitEnabled == false) {
             return;
         }
-        new JMockitInvokaeMethodListener(context);
+        new JMockitInvokeMethodListener(context);
         this.isJMockitEnabled = true;
     }
 }

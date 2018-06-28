@@ -1,9 +1,9 @@
 package org.test4j.hamcrest.matcher.property.comparator;
 
+import java.util.Date;
+
 import org.test4j.hamcrest.matcher.property.difference.Difference;
 import org.test4j.hamcrest.matcher.property.reflection.ReflectionComparator;
-
-import java.util.Date;
 
 /**
  * Comparator that checks whether 2 dates are both null or not null, the actual time-value is not compared.

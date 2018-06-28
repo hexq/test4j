@@ -8,13 +8,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import mockit.Mocked;
-import mockit.internal.UnexpectedInvocation;
-
 import org.test4j.module.inject.annotations.Inject;
 import org.test4j.testng.Test4J;
 import org.test4j.tools.commons.DateHelper;
 import org.testng.annotations.Test;
+
+import mockit.Mocked;
+import mockit.internal.expectations.invocation.UnexpectedInvocation;
 
 @SuppressWarnings({ "rawtypes", "serial", "unchecked" })
 @Test(groups = { "test4j", "assertion" })

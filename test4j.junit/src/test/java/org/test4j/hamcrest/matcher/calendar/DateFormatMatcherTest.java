@@ -2,12 +2,11 @@ package org.test4j.hamcrest.matcher.calendar;
 
 import java.util.Calendar;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 import org.test4j.junit.Test4J;
 import org.test4j.module.Test4JException;
 import org.test4j.tools.commons.DateUtilTest;
-
-import ext.test4j.hamcrest.MatcherAssert;
 
 @SuppressWarnings("unchecked")
 public class DateFormatMatcherTest extends Test4J {

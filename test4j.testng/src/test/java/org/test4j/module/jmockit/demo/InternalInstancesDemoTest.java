@@ -3,29 +3,27 @@ package org.test4j.module.jmockit.demo;
 import java.util.Observable;
 import java.util.concurrent.Callable;
 
+import org.test4j.testng.Test4J;
+import org.testng.annotations.Test;
+
 import mockit.Capturing;
 import mockit.Mocked;
 import mockit.Verifications;
 
-import org.test4j.module.jmockit.demo.InternalInstancesDemo;
-import org.test4j.module.jmockit.demo.Service;
-import org.test4j.testng.Test4J;
-import org.testng.annotations.Test;
-
 @Test(groups = "testng-demo")
 public class InternalInstancesDemoTest extends Test4J {
 	@Mocked
-	@Capturing(maxInstances = 10)
+	@Capturing
 	Service service;
 
 	@Test
-	public void captureAllInternallyCreatedInstances(@Mocked @Capturing(maxInstances = 1) final Callable<?> callable)
+	public void captureAllInternallyCreatedInstances(@Mocked @Capturing final Callable<?> callable)
 			throws Exception {
 		Service initialMockService = service;
 
-		new NonStrictExpectations() {
+		new Expectations() {
 			@Mocked
-			@Capturing(maxInstances = 1)
+			@Capturing
 			Observable observable;
 			{
 				service.doSomething();

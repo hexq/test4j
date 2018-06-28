@@ -2,24 +2,25 @@ package org.test4j.module.jmockit.extend;
 
 import java.io.File;
 
-import mockit.internal.expectations.transformation.ActiveInvocations;
-
 import org.test4j.tools.commons.ClazzHelper;
 import org.test4j.tools.commons.JSONHelper;
 
+import mockit.internal.expectations.ActiveInvocations;
+
 @SuppressWarnings({ "rawtypes" })
 public class ExpectationsResult {
+	
     protected Test4JInvocations currExpectations;
 
     protected ExpectationsResult(Test4JInvocations expectations) {
         this.currExpectations = expectations;
     }
 
-    public void thenReturn(Object o) {
-        if (o instanceof Throwable) {
-            currExpectations.thenReturn(o);
+    public void thenReturn(Object obj) {
+        if (obj instanceof Throwable) {
+            currExpectations.thenReturn(obj);
         } else {
-            ActiveInvocations.addResult(o);
+            ActiveInvocations.addResult(obj);
         }
     }
 
@@ -30,8 +31,8 @@ public class ExpectationsResult {
      * @param json
      */
     public void thenReturnFrom(Class claz, String json) {
-        Object o = JSONHelper.fromJsonFile(claz, json);
-        thenReturn(o);
+        Object obj = JSONHelper.fromJsonFile(claz, json);
+        thenReturn(obj);
     }
 
     /**
@@ -43,12 +44,12 @@ public class ExpectationsResult {
      */
     public void thenReturnFrom(Class claz, Class clazPath, String json) {
         String path = ClazzHelper.getPathFromPath(clazPath);
-        Object o = JSONHelper.fromJsonFile(claz, path + File.separatorChar + json);
-        thenReturn(o);
+        Object obj = JSONHelper.fromJsonFile(claz, path + File.separatorChar + json);
+        thenReturn(obj);
     }
 
-    public void thenReturn(Object o, Object... os) {
-        thenReturn(o);
+    public void thenReturn(Object obj, Object... os) {
+        thenReturn(obj);
         for (Object o1 : os) {
             thenReturn(o1);
         }

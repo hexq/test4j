@@ -1,6 +1,10 @@
 
+##Test4J 3.0##
+基于Test4J v2.0.7的改进，重点是对test4j.nodep的改进，把相关的依赖从原来的代码中取出，并对其中的JMockit升级到V1.40[自己打包]，
+其他的第三方依赖做了升级：Hamcrest(1.3)/ASM(3.3.1)/CGLIB(2.2.2)/Objenesis(2.6)。公司使用的包是基于本地的开发代码编译的包。
+
 ##什么是Test4J##
-Test4J原名叫jTester,本来是发布在google上的一个[开源项目](http://code.google.com/jtester)，后来迁移到github，并且由于域名的缘故，更名为[Test4J](https://github.com/test4j。Test4J是一个单元测试和业务流程测试框架，其基本功能包括如下：
+Test4J原名叫jTester，本来是发布在google上的一个[开源项目](http://code.google.com/jtester)，后来迁移到github，并且由于域名的缘故，更名为[Test4J]https://github.com/test4j。Test4J是一个单元测试和业务流程测试框架，其基本功能包括如下：
 
 #### 单元测试功能 ####
 - Fluent方式的断言，内置了大部分常用的断言语法，特别是对象反射断言功能尤其强大。
@@ -21,9 +25,9 @@ Test4J原名叫jTester,本来是发布在google上的一个[开源项目](http:/
 
 | 功能模块      |    jar包 |   
 | :-------- | :--------| :--: |  
-| 单元测试  | test4j.nodep, test4j.core, test4j.junit或test4j.testng<br>如果使用junit就引用test4j.junit, 使用testng就引用test4j.testng<br>test4j.junit和test4j.testng会间接引入core包和nodep包|
-| 集成测试     |  所有单元测试包 + test4j.integrated | 
-| 业务驱动测试   |  所有集成测试包  + test4j.spec |
+| 单元测试  | test4j.nodep, test4j.core, test4j.junit或test4j.testng<br>如果使用junit就引用test4j.junit，使用testng就引用test4j.testng<br>test4j.junit和test4j.testng会间接引入core包和nodep包|<br/>
+| 集成测试     |  所有单元测试包 + test4j.integrated |<br/> 
+| 业务驱动测试   |  所有集成测试包  + test4j.spec |<br/>
 单元测试jar引用
 ```xml
 	<dependency>

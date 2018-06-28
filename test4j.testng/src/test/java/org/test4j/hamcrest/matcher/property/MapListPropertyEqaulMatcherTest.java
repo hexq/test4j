@@ -5,13 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.test4j.hamcrest.matcher.property.MapListPropertyEqaulMatcher;
+import org.hamcrest.MatcherAssert;
 import org.test4j.hamcrest.matcher.property.reflection.EqMode;
 import org.test4j.testng.Test4J;
 import org.test4j.tools.commons.DateHelper;
 import org.testng.annotations.Test;
-
-import ext.test4j.hamcrest.MatcherAssert;
 
 @SuppressWarnings({ "unchecked", "serial", "rawtypes" })
 @Test

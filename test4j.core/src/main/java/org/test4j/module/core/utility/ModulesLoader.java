@@ -128,7 +128,7 @@ public class ModulesLoader {
                 enabledModules.add(module);
             } else {
                 MessageHelper.warn(String.format("can't find class %s in classpath, so disabled module[%s]",
-                        clazzAvailable, module));
+                		moduleEnabledClazz, module));
             }
         }
         return enabledModules;

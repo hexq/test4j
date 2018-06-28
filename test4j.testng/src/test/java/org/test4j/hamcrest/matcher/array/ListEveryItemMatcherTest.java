@@ -4,13 +4,12 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.hamcrest.Matcher;
+import org.hamcrest.MatcherAssert;
 import org.test4j.hamcrest.matcher.mockito.Matches;
 import org.test4j.hamcrest.matcher.modes.ItemsMode;
 import org.test4j.testng.Test4J;
 import org.testng.annotations.Test;
-
-import ext.test4j.hamcrest.Matcher;
-import ext.test4j.hamcrest.MatcherAssert;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 @Test(groups = { "test4j", "assertion" })

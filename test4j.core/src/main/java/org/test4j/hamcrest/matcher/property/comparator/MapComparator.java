@@ -1,15 +1,14 @@
 package org.test4j.hamcrest.matcher.property.comparator;
 
-import org.test4j.hamcrest.matcher.property.difference.Difference;
-import org.test4j.hamcrest.matcher.property.difference.MapDifference;
-import org.test4j.hamcrest.matcher.property.reflection.ReflectionComparator;
-
 import static org.test4j.hamcrest.matcher.property.reflection.ReflectionComparatorFactory.createRefectionComparator;
-
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
+import org.test4j.hamcrest.matcher.property.difference.Difference;
+import org.test4j.hamcrest.matcher.property.difference.MapDifference;
+import org.test4j.hamcrest.matcher.property.reflection.ReflectionComparator;
 
 /**
  * Comparator for maps. This will compare all values with corresponding keys.

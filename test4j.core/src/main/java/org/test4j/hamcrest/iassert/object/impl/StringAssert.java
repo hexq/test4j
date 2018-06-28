@@ -1,9 +1,10 @@
 package org.test4j.hamcrest.iassert.object.impl;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
+import org.hamcrest.Matcher;
+import org.hamcrest.core.AnyOf;
+import org.hamcrest.core.IsNot;
 import org.test4j.hamcrest.iassert.common.impl.ComparableAssert;
 import org.test4j.hamcrest.iassert.object.intf.IStringAssert;
 import org.test4j.hamcrest.matcher.mockito.Matches;
@@ -15,10 +16,6 @@ import org.test4j.hamcrest.matcher.string.StringMatcher;
 import org.test4j.hamcrest.matcher.string.StringMode;
 import org.test4j.hamcrest.matcher.string.StringNotBlankMatcher;
 import org.test4j.hamcrest.matcher.string.StringStartWithMatcher;
-
-import ext.test4j.hamcrest.Matcher;
-import ext.test4j.hamcrest.core.AnyOf;
-import ext.test4j.hamcrest.core.IsNot;
 
 @SuppressWarnings({ "rawtypes" })
 public class StringAssert extends ComparableAssert<String, IStringAssert> implements IStringAssert {
@@ -75,13 +72,17 @@ public class StringAssert extends ComparableAssert<String, IStringAssert> implem
 	}
 
 	public IStringAssert notContain(String[] subs, StringMode... modes) {
-		List<Matcher> matchers = new ArrayList<Matcher>();
+		/*List<Matcher> matchers = new ArrayList<>();
 		for (String sub : subs) {
 			StringContainMatcher matcher = new StringContainMatcher(new String[] { sub }, modes);
 			matchers.add(matcher);
 		}
 
-		Matcher _matcher = AnyOf.notAny(matchers);
+		Matcher _matcher = IsNot.not(AnyOf.anyOf(matchers));
+		return this.assertThat(_matcher);*/
+		
+		Matcher matcher = new StringContainMatcher(subs, modes);
+		Matcher _matcher = IsNot.not(AnyOf.anyOf(matcher));
 		return this.assertThat(_matcher);
 	}
 

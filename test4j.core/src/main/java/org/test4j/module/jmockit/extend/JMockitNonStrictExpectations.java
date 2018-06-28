@@ -1,27 +1,27 @@
 package org.test4j.module.jmockit.extend;
 
-import mockit.Mocked;
-import mockit.NonStrictExpectations;
-import mockit.internal.expectations.argumentMatching.ArgumentMatcher;
-import mockit.internal.expectations.transformation.ActiveInvocations;
-
+import org.hamcrest.Matcher;
 import org.test4j.hamcrest.TheStyleAssertion;
 import org.test4j.hamcrest.matcher.JMockitAdapter;
 import org.test4j.module.jmockit.utility.ExpectationsUtil;
 import org.test4j.tools.reflector.MethodAccessor;
 
-import ext.test4j.hamcrest.Matcher;
+import mockit.Expectations;
+import mockit.Mocked;
+import mockit.internal.expectations.ActiveInvocations;
+import mockit.internal.expectations.argumentMatching.ArgumentMatcher;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
-public class JMockitNonStrictExpectations extends NonStrictExpectations implements Test4JInvocations {
+@Deprecated
+public class JMockitNonStrictExpectations extends Expectations implements Test4JInvocations {
 
-    @Mocked({ "" })
+    @Mocked
     protected InvokeTimes             invokerTimes;
 
-    @Mocked({ "" })
+    @Mocked
     protected ExpectationsResult      expectationsResult;
 
-    @Mocked({ "" })
+    @Mocked
     protected final TheStyleAssertion the;
 
     public JMockitNonStrictExpectations() {
@@ -49,7 +49,7 @@ public class JMockitNonStrictExpectations extends NonStrictExpectations implemen
 
     @Override
     public void thenReturn(Object value) {
-        super.returns(value);
+        super.returns(value, null);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class JMockitNonStrictExpectations extends NonStrictExpectations implemen
         super.returns(firstValue, remainingValues);
     }
 
-    final static MethodAccessor methodAccessor = new MethodAccessor(NonStrictExpectations.class, "addMatcher",
+    final static MethodAccessor methodAccessor = new MethodAccessor(Expectations.class, "addMatcher",
                                                        ArgumentMatcher.class);
 
     protected final <T> T with(Matcher argumentMatcher) {

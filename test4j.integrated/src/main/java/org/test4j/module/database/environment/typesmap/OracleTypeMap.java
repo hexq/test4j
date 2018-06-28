@@ -1,23 +1,27 @@
 package org.test4j.module.database.environment.typesmap;
 
-import java.io.InputStream;
-import java.math.BigDecimal;
-import java.sql.ResultSet;
-import java.sql.Timestamp;
-import java.sql.Types;
-import java.util.HashMap;
-import java.util.Map;
-
-import oracle.jdbc.driver.OracleTypes;
-import oracle.sql.BLOB;
-import oracle.sql.TIMESTAMP;
-
-import org.test4j.module.database.environment.typesmap.TypeMap.JavaSQLType;
-import org.test4j.tools.commons.DateHelper;
-
+@Deprecated
 @SuppressWarnings({ "rawtypes", "serial" })
 public class OracleTypeMap extends AbstractTypeMap {
-	private static TypeMap maps = new TypeMap() {
+
+	@Override
+	protected Class getJavaTypeByName(String typeName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Object toObjectByType(String input, Class javaType) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Object getDefaultValue(Class javaType) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	/*private static TypeMap maps = new TypeMap() {
 		private static final long serialVersionUID = 4142728734422012716L;
 
 		{
@@ -68,13 +72,13 @@ public class OracleTypeMap extends AbstractTypeMap {
 		}
 	};
 
-	/**
+	*//**
 	 * 将string对象转换为java对象
 	 * 
 	 * @param input
 	 * @param javaType
 	 * @return
-	 */
+	 *//*
 	public Object toObjectByType(String input, Class javaType) {
 
 		if (javaType == TIMESTAMP.class) {
@@ -108,5 +112,5 @@ public class OracleTypeMap extends AbstractTypeMap {
 			return is;
 		}
 		return null;
-	}
+	}*/
 }

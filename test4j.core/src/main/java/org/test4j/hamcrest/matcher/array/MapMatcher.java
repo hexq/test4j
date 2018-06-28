@@ -2,10 +2,11 @@ package org.test4j.hamcrest.matcher.array;
 
 import java.util.Map;
 
-import ext.test4j.hamcrest.BaseMatcher;
-import ext.test4j.hamcrest.Description;
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
 
 public class MapMatcher extends BaseMatcher<Map<?, ?>> {
+	
 	private Object expected;
 
 	private MapMatcherType type;

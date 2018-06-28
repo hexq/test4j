@@ -1,6 +1,7 @@
 package org.test4j.hamcrest.matcher.property.difference;
 
 import static java.lang.Integer.MAX_VALUE;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

@@ -1,11 +1,10 @@
 package org.test4j.hamcrest.matcher.array;
 
+import org.hamcrest.Matcher;
+import org.hamcrest.MatcherAssert;
 import org.test4j.hamcrest.matcher.array.SizeOrLengthMatcher.SizeOrLengthMatcherType;
 import org.test4j.testng.Test4J;
 import org.testng.annotations.Test;
-
-import ext.test4j.hamcrest.Matcher;
-import ext.test4j.hamcrest.MatcherAssert;
 
 @Test(groups = { "test4j", "assertion" })
 @SuppressWarnings({ "unchecked", "rawtypes" })

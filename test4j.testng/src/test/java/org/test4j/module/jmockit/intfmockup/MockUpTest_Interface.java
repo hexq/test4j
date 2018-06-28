@@ -1,11 +1,9 @@
 package org.test4j.module.jmockit.intfmockup;
 
-import mockit.Mock;
-
-import org.test4j.module.jmockit.intfmockup.ISayHello;
-import org.test4j.module.jmockit.mockbug.SayHelloImpl;
 import org.test4j.testng.Test4J;
 import org.testng.annotations.Test;
+
+import mockit.Mock;
 
 @SuppressWarnings("unused")
 @Test
@@ -18,7 +16,7 @@ public class MockUpTest_Interface extends Test4J {
 	public void testInterfaceMockUp1() {
 		new MockUp<ISayHello>() {
 			{
-				sayHello1 = this.getMockInstance();
+//				sayHello1 = this.getMockInstance();
 			}
 
 			@Mock
@@ -33,12 +31,12 @@ public class MockUpTest_Interface extends Test4J {
 
 	public void testInterfaceMockUp2() {
 
-		sayHello1 = new MockUp<ISayHello>() {
+		new MockUp<ISayHello>() {
 			@Mock
 			public String sayHello() {
 				return "say hello2.";
 			}
-		}.getMockInstance();
+		};
 
 		String hello1 = this.sayHello1.sayHello();
 		want.string(hello1).isEqualTo("say hello2.");

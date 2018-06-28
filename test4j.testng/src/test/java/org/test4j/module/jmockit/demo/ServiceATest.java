@@ -4,26 +4,26 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 
-import mockit.Mock;
-
 import org.test4j.module.core.utility.MessageHelper;
 import org.test4j.testng.Test4J;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import mockit.Mock;
 
 @SuppressWarnings("rawtypes")
 @Test(groups = "test4j")
 public class ServiceATest extends Test4J {
 
     public static class MockDatabase extends MockUp<Database> {
-        @Mock(invocations = 1)
+        @Mock
         public static List<?> find(String ql, Object arg1) {
             want.string(ql).notNull();
             want.object(arg1).notNull();
             return Collections.EMPTY_LIST;
         }
 
-        @Mock(maxInvocations = 1)
+        @Mock
         public static void save(Object o) {
             want.object(o).notNull();
         }
@@ -40,7 +40,7 @@ public class ServiceATest extends Test4J {
 
         MessageHelper.info("doBusinessOperationXyz-test");
         new MockUp(ServiceB.class) {
-            @Mock(invocations = 1)
+            @Mock
             public BigDecimal computeTotal(List<?> items) {
                 want.collection(items).notNull();
                 return total;

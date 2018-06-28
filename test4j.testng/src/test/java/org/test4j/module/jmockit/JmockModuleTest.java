@@ -1,14 +1,13 @@
 package org.test4j.module.jmockit;
 
-import mockit.Mocked;
-
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.core.IsEqual;
 import org.test4j.fortest.beans.ISpeak;
 import org.test4j.testng.Test4J;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import ext.test4j.hamcrest.MatcherAssert;
-import ext.test4j.hamcrest.core.IsEqual;
+import mockit.Mocked;
 
 @Test(groups = { "test4j" })
 public class JmockModuleTest extends Test4J {

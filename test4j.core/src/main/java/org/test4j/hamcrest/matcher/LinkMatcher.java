@@ -3,10 +3,9 @@ package org.test4j.hamcrest.matcher;
 import java.util.ArrayList;
 import java.util.List;
 
-import ext.test4j.hamcrest.BaseMatcher;
-import ext.test4j.hamcrest.Description;
-import ext.test4j.hamcrest.Matcher;
-
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
 import org.test4j.tools.commons.StringHelper;
 
 @SuppressWarnings("rawtypes")

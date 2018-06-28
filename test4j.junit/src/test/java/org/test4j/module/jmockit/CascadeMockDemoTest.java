@@ -4,8 +4,6 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
 
-import mockit.Cascading;
-
 import org.junit.Ignore;
 import org.junit.Test;
 import org.test4j.junit.Test4J;
@@ -13,13 +11,14 @@ import org.test4j.junit.Test4J;
 public class CascadeMockDemoTest extends Test4J {
     @Test
     @Ignore
-    public void recordAndVerifyExpectationsOnCascadedMocks(@Cascading final Socket mock) throws Exception {
-        new NonStrictExpectations() {
+    public void recordAndVerifyExpectationsOnCascadedMocks(/*@Cascading */final Socket mock) throws Exception {
+        new Expectations() {
             {
                 mock.getChannel().isConnected();
                 result = true;
-                mock.getChannel().connect((SocketAddress) any);
-                returns(true);
+//                mock.getChannel().connect((SocketAddress) any);
+//                result = true;
+//                returns(true);
             }
         };
 

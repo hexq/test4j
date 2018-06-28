@@ -2,12 +2,11 @@ package org.test4j.hamcrest.matcher.calendar;
 
 import java.util.Calendar;
 
+import org.hamcrest.MatcherAssert;
 import org.test4j.module.Test4JException;
 import org.test4j.testng.Test4J;
 import org.test4j.tools.commons.DateUtilTest;
 import org.testng.annotations.Test;
-
-import ext.test4j.hamcrest.MatcherAssert;
 
 @Test(groups = { "test4j", "assertion" })
 @SuppressWarnings("unchecked")

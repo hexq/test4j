@@ -1,10 +1,9 @@
 package org.test4j.hamcrest.matcher.string;
 
+import org.hamcrest.MatcherAssert;
 import org.test4j.testng.Test4J;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import ext.test4j.hamcrest.MatcherAssert;
 
 @Test(groups = { "test4j", "assertion" })
 public class StringContainMatcherTest extends Test4J {

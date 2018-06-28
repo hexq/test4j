@@ -2,11 +2,10 @@ package org.test4j.hamcrest.iassert.common.intf;
 
 import java.util.List;
 
+import org.hamcrest.Matcher;
 import org.test4j.hamcrest.matcher.modes.ItemsMode;
 import org.test4j.hamcrest.matcher.property.reflection.EqMode;
 import org.test4j.module.ICore.DataMap;
-
-import ext.test4j.hamcrest.Matcher;
 
 /**
  * 

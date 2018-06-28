@@ -1,14 +1,15 @@
 package org.test4j.hamcrest.matcher.property.comparator;
 
+import static java.lang.reflect.Modifier.isStatic;
+import static java.lang.reflect.Modifier.isTransient;
+
+import java.lang.reflect.AccessibleObject;
+import java.lang.reflect.Field;
+
 import org.test4j.hamcrest.matcher.property.difference.ClassDifference;
 import org.test4j.hamcrest.matcher.property.difference.Difference;
 import org.test4j.hamcrest.matcher.property.difference.ObjectDifference;
 import org.test4j.hamcrest.matcher.property.reflection.ReflectionComparator;
-
-import java.lang.reflect.AccessibleObject;
-import java.lang.reflect.Field;
-import static java.lang.reflect.Modifier.isStatic;
-import static java.lang.reflect.Modifier.isTransient;
 
 /**
  * Comparator for objects. This will compare all corresponding field values.

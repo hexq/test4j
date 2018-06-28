@@ -3,12 +3,12 @@ package org.test4j.tools.commons;
 import java.util.Calendar;
 import java.util.Date;
 
-import mockit.Mock;
-import mockit.Mocked;
-
 import org.test4j.testng.Test4J;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import mockit.Mock;
+import mockit.Mocked;
 
 @Test(groups = { "test4j", "assertion" })
 public class DateUtilTest extends Test4J {
@@ -20,12 +20,13 @@ public class DateUtilTest extends Test4J {
     }
 
     public void testToDateTimeStr_MockitExpectation() {
-        new NonStrictExpectations() {
-            @Mocked(methods = "now")
+        new Expectations() {
+            @Mocked
             DateHelper dateUtil;
             {
                 DateHelper.now();
-                returns(getMockDate());
+//                returns(getMockDate());
+                result = getMockDate();
             }
         };
         String str = DateHelper.currDateTimeStr();
@@ -33,8 +34,8 @@ public class DateUtilTest extends Test4J {
     }
 
     public void testToDateTimeStr_MockitExpectation_returnSequence() {
-        new NonStrictExpectations() {
-            @Mocked(methods = "now")
+        new Expectations() {
+            @Mocked
             DateHelper dateUtil;
             {
                 DateHelper.now();
@@ -48,12 +49,12 @@ public class DateUtilTest extends Test4J {
     }
 
     public void testToDateTimeStr_MockitExpectation2() {
-        new NonStrictExpectations() {
-            @Mocked(methods = "now")
+        new Expectations() {
+            @Mocked
             DateHelper dateUtil;
             {
                 DateHelper.now();
-                returns(mockCalendar(2015, 6, 25).getTime());
+                result = mockCalendar(2015, 6, 25).getTime();
             }
         };
         String str = DateHelper.currDateTimeStr();
@@ -64,7 +65,7 @@ public class DateUtilTest extends Test4J {
         new Expectations(DateHelper.class) {
             {
                 DateHelper.now();
-                returns(mockCalendar(2009, 6, 25).getTime());
+                result = mockCalendar(2009, 6, 25).getTime();
             }
         };
         String str = DateHelper.currDateTimeStr();

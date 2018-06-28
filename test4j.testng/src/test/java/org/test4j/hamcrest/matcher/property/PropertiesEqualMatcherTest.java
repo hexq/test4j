@@ -6,14 +6,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.hamcrest.MatcherAssert;
 import org.test4j.hamcrest.matcher.property.reflection.EqMode;
 import org.test4j.json.encoder.beans.test.GenicBean;
 import org.test4j.json.encoder.beans.test.User;
 import org.test4j.testng.Test4J;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import ext.test4j.hamcrest.MatcherAssert;
 
 @SuppressWarnings({ "rawtypes", "serial", "unchecked" })
 @Test(groups = { "test4j", "assertion" })

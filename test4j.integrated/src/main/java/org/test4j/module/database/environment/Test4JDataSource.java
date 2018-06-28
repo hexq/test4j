@@ -5,8 +5,10 @@ import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import javax.sql.DataSource;
 
@@ -169,6 +171,12 @@ public class Test4JDataSource implements DataSource {
     public boolean isWrapperFor(Class<?> iface) throws SQLException {
         throw new RuntimeException("unimplement");
     }
+
+	@Override
+	public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
     // /**
     // * 是否需要去除数据库的外键约束和字段not null约束

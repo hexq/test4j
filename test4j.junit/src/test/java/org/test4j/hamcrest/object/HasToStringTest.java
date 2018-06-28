@@ -1,15 +1,14 @@
 package org.test4j.hamcrest.object;
 
-import static ext.test4j.hamcrest.MatcherAssert.assertThat;
-import static ext.test4j.hamcrest.core.IsEqual.equalTo;
-import static ext.test4j.hamcrest.core.IsNot.not;
-import static ext.test4j.hamcrest.object.HasToString.hasToString;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.core.IsNot.not;
+import static org.hamcrest.object.HasToString.hasToString;
 
+import org.hamcrest.Matcher;
+import org.hamcrest.StringDescription;
+import org.junit.Assert;
 import org.junit.Test;
 import org.test4j.hamcrest.AbstractMatcherTest;
-
-import ext.test4j.hamcrest.Matcher;
-import ext.test4j.hamcrest.StringDescription;
 
 public class HasToStringTest extends AbstractMatcherTest {
 	private static final String TO_STRING_RESULT = "toString result";
@@ -27,14 +26,14 @@ public class HasToStringTest extends AbstractMatcherTest {
 
 	@Test
 	public void testPassesResultOfToStringToNestedMatcher() {
-		assertThat(ARG, hasToString(equalTo(TO_STRING_RESULT)));
-		assertThat(ARG, not(hasToString(equalTo("OTHER STRING"))));
+		Assert.assertThat(ARG, hasToString(equalTo(TO_STRING_RESULT)));
+		Assert.assertThat(ARG, not(hasToString(equalTo("OTHER STRING"))));
 	}
 
 	@Test
 	public void testProvidesConvenientShortcutForHasToStringEqualTo() {
-		assertThat(ARG, hasToString(TO_STRING_RESULT));
-		assertThat(ARG, not(hasToString("OTHER STRING")));
+		Assert.assertThat(ARG, hasToString(TO_STRING_RESULT));
+		Assert.assertThat(ARG, not(hasToString("OTHER STRING")));
 	}
 
 	@Test

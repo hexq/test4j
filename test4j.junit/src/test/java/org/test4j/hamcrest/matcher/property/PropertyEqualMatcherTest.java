@@ -8,13 +8,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 import org.test4j.hamcrest.matcher.property.reflection.EqMode;
 import org.test4j.json.encoder.beans.test.User;
 import org.test4j.junit.Test4J;
 import org.test4j.junit.annotations.DataFrom;
-
-import ext.test4j.hamcrest.MatcherAssert;
 
 @SuppressWarnings({ "rawtypes", "serial", "unchecked" })
 public class PropertyEqualMatcherTest extends Test4J {

@@ -1,11 +1,10 @@
 package org.test4j.hamcrest.matcher.array;
 
+import org.hamcrest.Matcher;
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 import org.test4j.hamcrest.matcher.array.SizeOrLengthMatcher.SizeOrLengthMatcherType;
 import org.test4j.junit.Test4J;
-
-import ext.test4j.hamcrest.Matcher;
-import ext.test4j.hamcrest.MatcherAssert;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class SizeOrLengthMatcherTest extends Test4J {

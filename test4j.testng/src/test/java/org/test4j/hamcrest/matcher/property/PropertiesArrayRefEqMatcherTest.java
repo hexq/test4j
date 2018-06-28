@@ -6,11 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hamcrest.MatcherAssert;
 import org.test4j.fortest.beans.User;
 import org.test4j.testng.Test4J;
 import org.testng.annotations.Test;
-
-import ext.test4j.hamcrest.MatcherAssert;
 
 @Test(groups = { "test4j", "assertion" })
 public class PropertiesArrayRefEqMatcherTest extends Test4J {

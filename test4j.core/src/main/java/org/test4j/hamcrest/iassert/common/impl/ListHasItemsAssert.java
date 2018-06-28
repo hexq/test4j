@@ -3,17 +3,16 @@ package org.test4j.hamcrest.iassert.common.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hamcrest.Matcher;
+import org.hamcrest.collection.IsArrayContaining;
+import org.hamcrest.core.AllOf;
+import org.hamcrest.core.AnyOf;
+import org.hamcrest.core.IsCollectionContaining;
 import org.test4j.hamcrest.iassert.common.intf.IAssert;
 import org.test4j.hamcrest.iassert.common.intf.IListHasItemsAssert;
 import org.test4j.hamcrest.matcher.array.ListEveryItemMatcher;
 import org.test4j.hamcrest.matcher.modes.ItemsMode;
 import org.test4j.hamcrest.matcher.modes.MatchMode;
-
-import ext.test4j.hamcrest.Matcher;
-import ext.test4j.hamcrest.collection.IsArrayContaining;
-import ext.test4j.hamcrest.core.AllOf;
-import ext.test4j.hamcrest.core.AnyOf;
-import ext.test4j.hamcrest.core.IsCollectionContaining;
 
 @SuppressWarnings({ "rawtypes" })
 public class ListHasItemsAssert<T, E extends IAssert> extends BaseAssert<T, E> implements IListHasItemsAssert<E> {
@@ -40,34 +39,34 @@ public class ListHasItemsAssert<T, E extends IAssert> extends BaseAssert<T, E> i
 	}
 
 	public E hasAllItems(Object item, Object... items) {
-		List<Matcher> list = this.getHasItemMatchers(item, items);
+		List<Matcher<? super T>> list = this.getHasItemMatchers(item, items);
 		Matcher matcher = AllOf.allOf(list);
 		return this.assertThat(matcher);
 	}
 
 	public E hasAnyItems(Object item, Object... items) {
-		List<Matcher> list = this.getHasItemMatchers(item, items);
+		List<Matcher<? super T>> list = this.getHasItemMatchers(item, items);
 		Matcher matcher = AnyOf.anyOf(list);
 		return this.assertThat(matcher);
 	}
 
-	private List<Matcher> getHasItemMatchers(Object item, Object... items) {
+	private List<Matcher<? super T>> getHasItemMatchers(Object item, Object... items) {
 		assert valueClaz != null : "the value asserted must not be null";
-		List<Matcher> list = new ArrayList<Matcher>();
+		List<Matcher<? super T>> list = new ArrayList<>();
 
-		if (this.valueClaz == Object[].class) {
-			list.add(IsArrayContaining.hasItemInArray(item));
+		if (this.valueClaz == Object[].class) { //array
+			list.add((Matcher)IsArrayContaining.hasItemInArray(item));
 		} else {
-			list.add(IsCollectionContaining.hasItem(item));
+			list.add((Matcher)IsCollectionContaining.hasItem(item));
 		}
 		if (items == null || items.length == 0) {
 			return list;
 		}
-		for (Object temp : items) {
+		for (Object it : items) {
 			if (this.valueClaz == Object[].class) {
-				list.add(IsArrayContaining.hasItemInArray(temp));
+				list.add((Matcher)IsArrayContaining.hasItemInArray(it));
 			} else {
-				list.add(IsCollectionContaining.hasItem(temp));
+				list.add((Matcher)IsCollectionContaining.hasItem(it));
 			}
 		}
 		return list;
@@ -88,17 +87,17 @@ public class ListHasItemsAssert<T, E extends IAssert> extends BaseAssert<T, E> i
 	}
 
 	private Matcher getAnyItemsMatchAll(Matcher matcher, Matcher... matchers) {
-		List<Matcher> list = new ArrayList<Matcher>();
+		List<Matcher<? super T>> list = new ArrayList<>();
 		list.add(matcher);
-		for (Matcher m : matchers) {
+		for (Matcher<? super T> m : matchers) {
 			list.add(m);
 		}
 		Matcher allItems = AllOf.allOf(list);
 		return new ListEveryItemMatcher(allItems, ItemsMode.AnyItems);
 	}
 
-	private List<Matcher> getItemsMatchers(ItemsMode itemsMode, Matcher matcher, Matcher... matchers) {
-		List<Matcher> list = new ArrayList<Matcher>();
+	private List<Matcher<? super T>> getItemsMatchers(ItemsMode itemsMode, Matcher matcher, Matcher... matchers) {
+		List<Matcher<? super T>> list = new ArrayList<>();
 
 		ListEveryItemMatcher m1 = new ListEveryItemMatcher(matcher, itemsMode);
 		list.add(m1);
@@ -113,12 +112,12 @@ public class ListHasItemsAssert<T, E extends IAssert> extends BaseAssert<T, E> i
 	}
 
 	public E allItemsMatchAll(Matcher matcher, Matcher... matchers) {
-		List<Matcher> list = this.getItemsMatchers(ItemsMode.AllItems, matcher, matchers);
+		List<Matcher<? super T>> list = this.getItemsMatchers(ItemsMode.AllItems, matcher, matchers);
 		return this.assertThat(AllOf.allOf(list));
 	}
 
 	public E allItemsMatchAny(Matcher matcher, Matcher... matchers) {
-		List<Matcher> list = this.getItemsMatchers(ItemsMode.AllItems, matcher, matchers);
+		List<Matcher<? super T>> list = this.getItemsMatchers(ItemsMode.AllItems, matcher, matchers);
 		return this.assertThat(AnyOf.anyOf(list));
 	}
 
@@ -128,7 +127,7 @@ public class ListHasItemsAssert<T, E extends IAssert> extends BaseAssert<T, E> i
 	}
 
 	public E anyItemsMatchAny(Matcher matcher, Matcher... matchers) {
-		List<Matcher> list = this.getItemsMatchers(ItemsMode.AnyItems, matcher, matchers);
+		List<Matcher<? super T>> list = this.getItemsMatchers(ItemsMode.AnyItems, matcher, matchers);
 		return this.assertThat(AnyOf.anyOf(list));
 	}
 }

@@ -1,9 +1,8 @@
 package org.test4j.hamcrest.iassert.common.intf;
 
+import org.hamcrest.Matcher;
 import org.test4j.hamcrest.matcher.modes.ItemsMode;
 import org.test4j.hamcrest.matcher.modes.MatchMode;
-
-import ext.test4j.hamcrest.Matcher;
 
 /**
  * 数组或collection类型的对象容器断言

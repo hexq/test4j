@@ -6,7 +6,7 @@ package org.test4j.hamcrest.matcher.mockito;
 
 import java.io.Serializable;
 
-import ext.test4j.hamcrest.Description;
+import org.hamcrest.Description;
 
 public class Matches extends ArgumentMatcher<Object> implements Serializable {
 

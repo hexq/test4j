@@ -1,10 +1,11 @@
 package org.test4j.module.jmockit;
 
-import mockit.Mocked;
-import mockit.internal.UnexpectedInvocation;
 
 import org.test4j.testng.Test4J;
 import org.testng.annotations.Test;
+
+import mockit.Mocked;
+import mockit.internal.expectations.invocation.UnexpectedInvocation;
 
 @Test(groups = "test4j")
 public class ReturnValueTest2 extends Test4J {
@@ -15,7 +16,8 @@ public class ReturnValueTest2 extends Test4J {
         new Expectations() {
             {
                 someInterface.call();
-                returns("call one");
+//                returns("call one");
+                result = "call one";
             }
         };
         this.someInterface.call();
@@ -25,7 +27,8 @@ public class ReturnValueTest2 extends Test4J {
         new Expectations() {
             {
                 when(someInterface.call()).callExactly(2);
-                returns("call one");
+//                returns("call one");
+                result = ("call one");
             }
         };
         this.someInterface.call();
@@ -36,7 +39,8 @@ public class ReturnValueTest2 extends Test4J {
         new Expectations() {
             {
                 when(someInterface.call()).callIgnoreTimes();
-                returns("call one");
+//                returns("call one");
+                result = "call one";
             }
         };
         this.someInterface.call();
@@ -58,7 +62,8 @@ public class ReturnValueTest2 extends Test4J {
         new Expectations() {
             {
                 when(someInterface.call()).callNeverOccur();
-                returns("call one");
+//                returns("call one");
+                result = "call one";
             }
         };
         this.someInterface.call();
@@ -68,7 +73,8 @@ public class ReturnValueTest2 extends Test4J {
         new Expectations() {
             {
                 when(someInterface.call()).callMinimal(2);
-                returns("call one");
+//                returns("call one");
+                result = "call one";
             }
         };
         this.someInterface.call();
@@ -80,7 +86,8 @@ public class ReturnValueTest2 extends Test4J {
         new Expectations() {
             {
                 when(someInterface.call()).callBetween(2, 3);
-                returns("call one");
+//                returns("call one");
+                result = "call one";
             }
         };
         this.someInterface.call();

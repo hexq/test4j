@@ -1,5 +1,6 @@
 package org.test4j.hamcrest.iassert.common.impl;
 
+import org.hamcrest.Matcher;
 import org.test4j.hamcrest.iassert.common.intf.IAssert;
 import org.test4j.hamcrest.iassert.common.intf.IReflectionAssert;
 import org.test4j.hamcrest.matcher.property.MapPropertyEqaulMatcher;
@@ -11,8 +12,6 @@ import org.test4j.hamcrest.matcher.property.ReflectionEqualMatcher;
 import org.test4j.hamcrest.matcher.property.reflection.EqMode;
 import org.test4j.hamcrest.matcher.string.StringMode;
 import org.test4j.module.ICore.DataMap;
-
-import ext.test4j.hamcrest.Matcher;
 
 @SuppressWarnings("rawtypes")
 public class ReflectionAssert<T, E extends IAssert> extends ListHasItemsAssert<T, E> implements IReflectionAssert<E> {

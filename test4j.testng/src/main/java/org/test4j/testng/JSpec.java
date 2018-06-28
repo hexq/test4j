@@ -6,7 +6,7 @@ import org.test4j.module.ICore;
 import org.test4j.module.core.ICoreInitial;
 import org.test4j.module.core.TestContext;
 import org.test4j.module.database.IDatabase;
-import org.test4j.module.jmockit.IMockict;
+import org.test4j.module.jmockit.IMockit;
 import org.test4j.module.spring.ISpring;
 import org.test4j.spec.ISpec;
 import org.test4j.spec.ISpecExecutorFactory;
@@ -21,8 +21,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 
 @SuppressWarnings({ "unchecked" })
-public abstract class JSpec extends Test4JCore implements ISpec, ICore, IMockict, ISpring, IDatabase {
-    static ISpecExecutorFactory                  specFactory   = ICoreInitial.initSpecExecutorFactory();
+public abstract class JSpec extends Test4JCore implements ISpec, ICore, IMockit, ISpring, IDatabase {
+   
+	private static ISpecExecutorFactory          specFactory   = ICoreInitial.initSpecExecutorFactory();
 
     private final Map<SpecMethodID, ISpecMethod> specMethods;
 

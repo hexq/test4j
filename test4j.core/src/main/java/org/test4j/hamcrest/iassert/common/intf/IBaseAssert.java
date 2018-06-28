@@ -1,8 +1,8 @@
 package org.test4j.hamcrest.iassert.common.intf;
 
+import org.hamcrest.Matcher;
 import org.test4j.hamcrest.iassert.object.intf.IStringAssert;
 
-import ext.test4j.hamcrest.Matcher;
 
 /**
  * the basic asserting matcher
@@ -100,7 +100,7 @@ public interface IBaseAssert<T, E extends IAssert> extends Matcher<T>, IAssert<T
      * 断言对象符合任一个对象行为定义<br>
      * same as "matchAny(...)"
      * 
-     * @param matcher1 对象行为定义，具体定义参见 ext.test4j.hamcrest.Matcher
+     * @param matcher1 对象行为定义，具体定义参见 org.hamcrest.Matcher
      * @param matcher2
      * @param matchers
      * @return
@@ -120,7 +120,7 @@ public interface IBaseAssert<T, E extends IAssert> extends Matcher<T>, IAssert<T
     /**
      * 断言对象不符合matcher所定义的行为
      * 
-     * @param matcher 对象行为定义，具体定义参见 ext.test4j.hamcrest.Matcher
+     * @param matcher 对象行为定义，具体定义参见 org.hamcrest.Matcher
      * @return
      */
     E not(E matcher);
