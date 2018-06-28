@@ -311,18 +311,16 @@
 			</plugin>
 		</plugins>
 	</build>
-	<!-- 
 	<distributionManagement>
-		<snapshotRepository>
-			<id>sonatype-nexus-snapshots</id>
-			<name>Sonatype Nexus snapshot repository</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-		<repository>
-			<id>sonatype-nexus-staging</id>
-			<name>Sonatype Nexus release repository</name>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
+		 <repository>
+	         <id>deployRelease</id>
+	         <name>Closeli Internal Repository</name>
+	         <url>http://nexus.closeli.cc/repository/Releases/</url>
+	     </repository>
+	     <snapshotRepository>
+	         <id>deploySnapshot</id>
+	         <name>Closeli Internal Repository</name>
+	         <url>http://nexus.closeli.cc/repository/Snapshot/</url>
+	     </snapshotRepository>
 	</distributionManagement>
-	 -->
 </project>
